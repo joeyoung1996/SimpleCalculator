@@ -5,12 +5,11 @@ This is a simple calculator CLI app that I developed using Java. As I learn more
 ##Features
 
 * Can do the four basic operations (+, -, *, /)
-* Can start calculation over if needed
+* Error Catching
 * Can loop for multiple calculations
 
 
 ###Upcoming Features:
 
-* Error Catching
 * More Operations
 * GUI
