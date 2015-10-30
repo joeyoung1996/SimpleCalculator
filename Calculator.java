@@ -7,20 +7,22 @@ public class Calculator
 		double firstNumber = 0;
 		double secondNumber = 0;
 		double answer = 1;
-		int wholeProgramLoop = 1;
-		int operatorLoop = 1;
-		int confirmationLoop = 0;
-		Scanner input = new Scanner(System.in);
+		boolean isProgramDone = false;
+		boolean wasOperatorChosen = false;
+		boolean isConfirmationDone = false;
+      Scanner input = new Scanner(System.in);
+		
 		String operation = null;
 		String confirmation;
 		String operationWord = null;
 		
-		while (wholeProgramLoop == 1)
+		while (isProgramDone = false)
 		{
 			
 		System.out.println("Please enter the first number in your calculation: ");
 		try
 		{
+			
 			firstNumber = input.nextDouble();
 			System.out.println("Great, now enter the secondnumber: ");
 			secondNumber = input.nextDouble();
@@ -42,37 +44,37 @@ public class Calculator
 		System.out.println("Is this correct? Y/N");
 		confirmation = input.next();
 	
-		while(confirmationLoop == 1)
+		while(isConfirmationDone = false)
 		{
-		if (confirmation.equals("Y") | confirmation.equals("y"))
+		if (confirmation.equalsIgnoreCase("Y"))
 		{
-			confirmationLoop = 0;
-			while(operatorLoop == 1)
+			isConfirmationDone = true;
+			while(wasOperatorChosen == false)
 			{
 			if (operation.equals("+"))
 			{
 				answer = firstNumber + secondNumber;
 				operationWord = "sum";
-				operatorLoop = 0;
+				wasOperatorChosen = true;
 			}
 			else if (operation.equals("-"))
 			{
 				answer = firstNumber - secondNumber;
 				operationWord = "difference";
-				operatorLoop = 0;
+				wasOperatorChosen = true;
 			}
 			
 			else if (operation.equals("*"))
 			{
 				answer = firstNumber * secondNumber;
 				operationWord = "product";
-				operatorLoop = 0;
+				wasOperatorChosen = true;
 			}
 			else if (operation.equals("/"))
 			{
 				answer = firstNumber / secondNumber;
 				operationWord = "quotient";
-				operatorLoop = 0;
+				wasOperatorChosen = true;
 			}
 			else
 			{
@@ -80,11 +82,12 @@ public class Calculator
 			}
 		}
 		}
-		else if (confirmation.equals("N") | confirmation.equals("n"))
+		else if (confirmation.equalsIgnoreCase("N"))
 		{
 			System.out.println("Please correct the calculation. ");
-			wholeProgramLoop = 1;
-			confirmationLoop = 0;
+			isProgramDone = false;
+			wasOperatorChosen = false;
+			isConfirmationDone = false;
 		}
 		else
 		{
@@ -95,12 +98,12 @@ public class Calculator
 		confirmation = input.next();
 		if (confirmation.equals("Y"))
 		{
-			wholeProgramLoop = 1;
+			isProgramDone = false;
 		}
 		else
 		{
 			System.out.println("Goodbye!");
-			wholeProgramLoop = 0;
+			isProgramDone = true;
 		}
 		
 		}
@@ -108,4 +111,5 @@ public class Calculator
 	}
 }
 	}
+
 
